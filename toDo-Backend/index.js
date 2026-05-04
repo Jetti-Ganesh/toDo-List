@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
@@ -42,6 +43,6 @@ app.delete("/deleteTask/:id",(req,res)=>
     todos.splice(index,1);
     res.json(todos);
 })
-app.listen(3000, () => {
-    console.log("Server Running at Port 3000..");
+app.listen(process.env.PORT, () => {
+    console.log(`Server Running at Port ${process.env.PORT}..`);
 });
